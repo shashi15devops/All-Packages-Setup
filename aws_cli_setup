@@ -1,0 +1,60 @@
+Step 1: Install AWS CLI
+
+Download the official AWS CLI v2 installer:
+
+https://awscli.amazonaws.com/AWSCLIV2.msi
+
+Install it on your Windows machine. 
+
+==============================================================================
+
+Step 2: Verify Installation
+
+Open CMD or PowerShell and execute:
+
+aws --version
+
+Expected output will resemble:
+
+aws-cli/2.x.x Python/3.x Windows/...
+==============================================================================
+
+Step 3: Create an IAM user in AWS
+
+  Open the AWS Management Console.
+  Search for IAM.
+  Go to Users → Create user.
+  Enter a username, for example, local-aws-cli-user.
+  Create the user and grant only the permissions it needs.
+==============================================================================
+
+Step 4: Create access keys
+
+  Open IAM → Users → local-aws-cli-user.
+  Select Security credentials.
+  Find Access keys and select Create access key.
+  Choose the use case that matches your situation, if prompted.
+  Create the key and securely save both values.
+
+You'll receive two credentials:
+- Access Key ID — identifies the access key.
+- Secret Access Key — the secret used to authenticate requests.  
+==============================================================================
+
+Step 5: Configure AWS CLI on your laptop
+
+Open CMD or PowerShell and execute:
+   aws configure
+
+
+Enter the values you created:
+
+AWS Access Key ID: <your-access-key-id>
+AWS Secret Access Key: <your-secret-access-key>
+Default region name: ap-south-1
+Default output format: json
+==============================================================================
+
+Step 6: Verify the configuration
+
+aws sts get-caller-identity
